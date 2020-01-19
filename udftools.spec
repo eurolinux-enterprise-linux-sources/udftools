@@ -1,7 +1,7 @@
 Summary: Linux UDF Filesystem userspace utilities
 Name: udftools
 Version: 1.0.0b3
-Release: 23%{?dist}
+Release: 26%{?dist}
 License: GPLv2+
 Group: Applications/Archiving
 URL: http://sourceforge.net/projects/linux-udf/
@@ -16,6 +16,7 @@ Patch5: udftools-1.0.0b3-warningfixes2.patch
 Patch6: udftools-1.0.0b3-extsize.patch
 Patch7: udftools-1.0.0b3-staticanal.patch
 Patch8: udftools-1.0.0b3-wrudf_help.patch
+Patch9: udftools-1.0.0b3-man-missing-options.patch
 BuildRequires: readline-devel, ncurses-devel
 BuildRequires: autoconf, automake, libtool, perl-Carp
 
@@ -34,6 +35,7 @@ Linux UDF Filesystem userspace utilities.
 %patch6 -p1 -b .extsize
 %patch7 -p1 -b .staticanal
 %patch8 -p1 -b .wrudfhelp
+%patch9 -p1 -b .man
 
 
 %build
@@ -58,6 +60,16 @@ install -m 644 %{SOURCE2} %buildroot%{_mandir}/man1/
 
 
 %changelog
+* Wed Jan 29 2014 Frantisek Kluknavsky <fkluknav@redhat.com> - 1.0.0b3-26
+- added missing options to manual pages
+  Resolves: #948506
+
+* Fri Jan 24 2014 Daniel Mach <dmach@redhat.com> - 1.0.0b3-25
+- Mass rebuild 2014-01-24
+
+* Fri Dec 27 2013 Daniel Mach <dmach@redhat.com> - 1.0.0b3-24
+- Mass rebuild 2013-12-27
+
 * Tue Apr 16 2013 Frantisek Kluknavsky <fkluknav@redhat.com> - 1.0.0b3-23
 - Build dependency on txt2man unacceptable. Included final man page wrudf.1 instead of source.
 
